@@ -7,3 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+['hello', 'another one', 'just setting up my chrpr'].each do |post_body|
+  Post.create!(body: post_body)
+end
