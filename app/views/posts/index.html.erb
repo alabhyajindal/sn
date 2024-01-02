@@ -1,5 +1,10 @@
 <h1>Posts</h1>
 
-<% @posts.each do |post| %>
-  <div><%= post.body %></div>
-<% end %>
+<section id='posts-container'>
+  <% @posts.each do |post| %>
+    <div id='post'>
+      <div id='post-user'><%= post.user.username %></div>
+      <div id='post-body'><%= post.body %></div>
+    </div>
+  <% end %>
+</section>

@@ -1,0 +1,9 @@
+#posts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+#post-body {
+  font-size: 24px;
+}

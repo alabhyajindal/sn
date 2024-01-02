@@ -1,0 +1,7 @@
+<h1>New post</h1>
+
+<%= form_with model: current_user.posts.new do |f| %>
+  <%= f.text_area :body, size: '70x10' %>
+
+  <%= f.submit 'submit' %>
+<% end %>
