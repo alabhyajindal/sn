@@ -5,5 +5,15 @@
   <%= f.label :password %>
   <%= f.password_field :password %>
 
-  <%= f.submit 'Create account' %>
+  <%= f.submit 'create account' %>
+<% end %>
+
+<%= form_with url: login_path do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.submit 'login' %>
 <% end %>
