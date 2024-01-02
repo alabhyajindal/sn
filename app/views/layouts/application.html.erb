@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Chirp</title>
+    <title>Slacker News</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag 'https://unpkg.com/mvp.css@1.14.0/mvp.css' %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <header>
-      <%= render "layouts/header" %>
-    </header>
+  <body class='max-w-6xl mx-auto'>
+  
+    <%= render "layouts/header" %>
 
-    <main>
+    <main class='mt-12 px-4'>
       <%= render 'layouts/flash' %>
       <%= yield %>
     </main>
 
-    <footer>
-      <%#= render "layouts/footer" %>
-    </footer>
   </body>
 </html>
