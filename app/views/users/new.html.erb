@@ -10,12 +10,4 @@
   <%= f.submit 'create account' %>
 <% end %>
 
-<%= form_with url: login_path do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.submit 'login' %>
-<% end %>
+<h3>Or <%= link_to 'login', login_path %></h3>
