@@ -1,11 +1,11 @@
 <section>
   <% @posts.each do |post| %>
-    <div>
+    <div class='mb-4 text-sm'>
       <div>
         <%= link_to post.title, post.url %>
         (<%= link_to display_url(post.url), '#' %>)
       </div>
-      <div>
+      <div class='text-xs'  >
         by <%= post.user.username %>
         <%= time_ago_in_words(post.created_at) %> ago
       </div>

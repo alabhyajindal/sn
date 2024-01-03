@@ -8,6 +8,14 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-['hello', 'another one', 'just setting up my chrpr'].each do |post_body|
-  Post.create!(body: post_body)
+50.times do |i|
+  username = Faker::Internet.username
+  password = '123'
+
+  user = User.create!(username: username, password: password)
+
+  url = Faker::Internet.url
+  title = Faker::Hipster.sentence
+
+  user.posts.create!(url: url, title: title)
 end

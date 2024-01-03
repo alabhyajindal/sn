@@ -58,6 +58,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # refresh browser on view file changes
+  gem "rails_live_reload"
 end
 
 group :test do
@@ -67,7 +70,4 @@ group :test do
 end
 
 gem "tailwindcss-rails", "~> 2.1"
-
-group :development do
-  gem "rails_live_reload"
-end
+gem 'faker'
