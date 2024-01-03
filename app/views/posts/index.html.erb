@@ -1,8 +1,14 @@
 <section>
   <% @posts.each do |post| %>
     <div>
-      <div><%= post.body %></div>
-      <div><%= post.user.username %></div>
+      <div>
+        <%= link_to post.title, post.url %>
+        (<%= link_to display_url(post.url), '#' %>)
+      </div>
+      <div>
+        by <%= post.user.username %>
+        <%= time_ago_in_words(post.created_at) %> ago
+      </div>
     </div>
   <% end %>
 </section>

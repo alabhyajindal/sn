@@ -6,20 +6,15 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body class='max-w-7xl mx-auto'>
-  
     <%= render "layouts/header" %>
-
     <main class='bg-amber-50 py-4 px-2'>
       <%= render 'layouts/flash' %>
       <%= yield %>
     </main>
-
   </body>
 </html>
