@@ -1,6 +1,14 @@
-<%= form_with model: current_user.posts.new do |f| %>
-  <%= f.label :body %>
-  <%= f.text_area :body, size: '50x5' %>
+<%= form_with model: @post, html: {autocomplete: 'off', class: 'grid gap-2 grid-cols-2 text-xs items-center text-gray-600', style: "grid-template-columns: max-content max-content;"} do |f| %>
+  <%= f.label :title, 'title' %>
+  <%= f.text_field :title, class: 'text-xs px-1 m-0 text-gray-900 font-mono rounded-sm' %>
 
-  <%= f.submit 'submit' %>
+  <%= f.label :url, 'url' %>
+  <%= f.text_field :url, class: 'text-xs px-1 m-0 text-gray-900 font-mono rounded-sm' %>
+
+  <%= f.label :text, 'text' %>
+  <%= f.text_area :text, size: '39x4', class: 'text-xs px-1 m-0 text-gray-900 font-mono rounded-sm resize' %>
+
+  <%= f.submit 'submit', class: 'text-gray-900 col-start-2 cursor-pointer bg-gray-200 w-24 p-1 hover:bg-gray-300 rounded-sm' %>
 <% end %>
+
+<p class='mt-12 text-gray-600'>Leave url blank to submit a question for discussion. If there is no url, text will appear at the top of the thread. If there is a url, text is optional.</p>
