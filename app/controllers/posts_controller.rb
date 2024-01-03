@@ -10,9 +10,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = current_user.posts.create(post_params)
-    if post.save
-      redirect_to post_path(post)
+    @post = current_user.posts.create(post_params)
+    if @post.save
+      redirect_to post_path(@post)
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -23,6 +25,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params[:post].permit(:body)
+    params[:post].permit(:title, :url, :text)
   end
 end
