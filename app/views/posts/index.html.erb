@@ -1,8 +1,8 @@
-<section id='posts-container'>
+<section>
   <% @posts.each do |post| %>
-    <div id='post'>
-      <div id='post-user'><%= post.user.username %></div>
-      <div id='post-body'><%= post.body %></div>
+    <div>
+      <div><%= post.body %></div>
+      <div><%= post.user.username %></div>
     </div>
   <% end %>
 </section>
