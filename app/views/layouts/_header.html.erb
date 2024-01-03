@@ -1,10 +1,10 @@
-<header class='bg-orange-500 text-xs'>
+<header class='bg-orange-500 text-xs py-1'>
 
   <div class='flex justify-between items-center'>
-    <div class='flex items-center gap-1'>
-      <%= image_tag 'yc.svg', class: 'border border-1 border-white m-1' %>
-      <span class='font-bold whitespace-nowrap mr-2 text-sm'><%= link_to 'Slacker News', root_path %></span>
-      <div class=''>
+    <div class='grid grid-cols-[max-content_1fr] grid-rows-2 items-center'>
+      <%= image_tag 'yc.svg', class: 'border border-1 border-white m-1 row-span-2 md:row-span-1' %>
+      <span class='font-semibold whitespace-nowrap mr-2 text-sm ml-2'><%= link_to 'Slacker News', root_path %></span>
+      <div class='ml-2 md:col-start-3'>
         <% navigation_links.each_with_index do |link, index| %>
           <span><%= link_to link[:name], link[:path] %></span>
           <span><%= raw(" | ") unless index == navigation_links.size - 1 %></span>
