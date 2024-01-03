@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-50.times do |i|
+30.times do |i|
   username = Faker::Internet.username
   password = '123'
 
@@ -16,6 +16,11 @@
 
   url = Faker::Internet.url
   title = Faker::Hipster.sentence
+  paragraph = Faker::Hipster.paragraph
 
-  user.posts.create!(url: url, title: title)
+  if rand > 0.5
+    user.posts.create!(title: title, text: paragraph, url: nil)
+  else
+    user.posts.create!(title: title, url: url, text: nil)
+  end
 end

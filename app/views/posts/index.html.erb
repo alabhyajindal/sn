@@ -2,18 +2,18 @@
   <% @posts.each do |post| %>
     <div class='mb-4 text-sm'>
       <div>
-        <% if post.url.empty? %>
+        <% if post.url.present? %>
           <%= link_to post.title, post_path(post) %>
         <% else %>
           <%= link_to post.title, post.url %>
         <% end %>
-        <% unless post.url.empty? %>
+        <% if post.url.present? %>
           <span class='text-gray-500 text-xs'>(<%= display_url(post.url) %>)</span>
         <% end %>
       </div>
       <div class='text-xs text-gray-500'  >
         by <%= post.user.username %>
-        <%= time_ago_in_words(post.created_at) %> ago
+        <%= time_ago_in_words(post.created_at) %> ago | <%= link_to 'discuss', post_path(post) %>
       </div>
     </div>
   <% end %>

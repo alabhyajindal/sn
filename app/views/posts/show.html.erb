@@ -1,3 +1,11 @@
-<p>
-  <%= @post.body %>
-</p>
+<section class='text-gray-500'>
+  <%= @post.title %>
+  <% if @post.url.present? %>
+    <span class='text-gray-500 text-xs'>(<%= display_url(@post.url) %>)</span>
+  <% end %>
+
+  <% if @post.text.present? %>
+    <p class='mt-4 text-sm'><%= @post.text %></p>
+  <% end %>
+
+</section>

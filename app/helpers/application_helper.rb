@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def navigation_links
     [
       { name: 'new', path: '#' },
@@ -11,4 +12,5 @@ module ApplicationHelper
       { name: 'submit', path: new_post_path }
     ]
   end
+  
 end
