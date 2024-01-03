@@ -3,25 +3,23 @@
   <div class='flex justify-between items-center'>
     <div class='flex items-center gap-1'>
       <%= image_tag 'yc.svg', class: 'border border-1 border-white m-1' %>
-      <div>
-        <span class='font-semibold whitespace-nowrap mr-2 text-sm'><%= link_to 'Slacker News', root_path %></span>
-        <div class='flex gap-1 text-xs'>
-          <% navigation_links.each_with_index do |link, index| %>
-            <p><%= link_to link[:name], link[:path] %></p>
-            <p><%= '|' unless index == navigation_links.size - 1 %></p>
-          <% end %>
-        </div>
+      <span class='font-bold whitespace-nowrap mr-2 text-sm'><%= link_to 'Slacker News', root_path %></span>
+      <div class=''>
+        <% navigation_links.each_with_index do |link, index| %>
+          <span><%= link_to link[:name], link[:path] %></span>
+          <span><%= raw(" | ") unless index == navigation_links.size - 1 %></span>
+        <% end %>
       </div>
     </div>
 
-    <div class='flex gap-1 mr-2'>
+    <div class='mr-2'>
       <% if current_user %>
-        <p><%= current_user.username %></p>
-        <p>(123)</p>
-        <p>|</p>
-        <p><%= link_to 'logout', session_path, data: {turbo_method: :delete} %></p>
+        <span><%= current_user.username %></span>
+        <span>(123)</span>
+        <span>|</span>
+        <span><%= link_to 'logout', session_path, data: {turbo_method: :delete} %></span>
       <% else %>
-        <p><%= link_to 'login', login_path %></p>
+        <span><%= link_to 'login', login_path %></span>
       <% end %>
     </div>
   </div>
