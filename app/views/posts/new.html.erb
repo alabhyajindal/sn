@@ -2,7 +2,7 @@
 
   <%= render 'shared/errors', object: @post %>
 
-  <div class='grid gap-2 grid-cols-2 text-xs items-center text-gray-600' style='grid-template-columns: max-content max-content;'>
+  <div class='grid gap-x-4 gap-y-2 grid-cols-[min-content_min-content] text-xs items-center text-gray-600'>
 
     <%= f.label :title, 'title' %>
     <%= f.text_field :title, autofocus: true, required: true, class: 'text-xs px-1 m-0 text-gray-900 font-mono rounded-sm' %>
@@ -10,9 +10,10 @@
     <%= f.url_field :url, class: 'text-xs px-1 m-0 text-gray-900 font-mono rounded-sm' %>
     <%= f.label :text, 'text' %>
     <%= f.text_area :text, size: '39x4', class: 'text-xs px-1 m-0 text-gray-900 font-mono rounded-sm resize' %>
-    <%= f.submit 'submit', class: 'text-gray-900 col-start-2 cursor-pointer bg-gray-200 w-24 p-1 hover:bg-gray-300 rounded-sm' %>
+    <%= f.submit 'submit', class: 'btn-submit col-start-2' %>
+
+    <p class='mt-4 text-gray-600 col-start-2'>Leave url blank to submit a question for discussion. If there is no url, text will appear at the top of the thread. If there is a url, text is optional.</p>
 
   </div>
 
 <% end %>
-<p class='mt-12 text-gray-600'>Leave url blank to submit a question for discussion. If there is no url, text will appear at the top of the thread. If there is a url, text is optional.</p>
