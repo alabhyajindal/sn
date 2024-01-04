@@ -24,11 +24,12 @@ class PostsController < ApplicationController
 
   def upvote
     @post = Post.find(params[:post_id])
-    if @post.voters << current_user
-      redirect_to root_path
-    else
-      render :new, status: :unprocessable_entity
+
+    unless @post.voters.include?(current_user)
+      @post.voters << current_user
     end
+
+    redirect_to root_path
   end
 
   private
