@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :users
-  resources :posts
+  resources :posts do
+    post 'upvote' => 'posts#upvote'
+  end
+
   resource :session, only: [:new, :create, :destroy]
   get 'login' => 'sessions#new'
   get 'signup' => 'users#new'

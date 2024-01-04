@@ -3,7 +3,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    # fail
   end
 
   def new
@@ -21,6 +20,10 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+  end
+
+  def upvote
+    fail
   end
 
   private

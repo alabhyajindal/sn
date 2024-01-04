@@ -1,7 +1,14 @@
 class ApplicationController < ActionController::Base
   def require_login
     unless current_user
+      flash[:notice] = 'Please sign in first'
       redirect_to login_path
+    end
+  end
+
+  def require_logout
+    if current_user
+      redirect_to root_path
     end
   end
 
