@@ -1,7 +1,7 @@
 <header class='bg-orange-500 text-xs md:mt-2'>
 
   <div class='grid grid-cols-[max-content_1fr_max-content] md:grid-cols-[max-content_max-content_1fr_max-content] grid-rows-2 items-center'>
-    <%= image_tag 'yc.svg', class: 'border border-1 border-white m-1 row-span-2' %>
+    <%= link_to image_tag('yc.svg'), root_path, class: 'border border-1 border-white m-1 row-span-2' %>
     <span class='font-semibold whitespace-nowrap mr-2 text-sm ml-2 md:row-span-2'><%= link_to 'Slacker News', root_path %></span>
     <div class='ml-2 col-start-2 md:row-span-2 md:col-span-2'>
       <% navigation_links.each_with_index do |link, index| %>
