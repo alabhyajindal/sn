@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :require_login, only: [:create, :new]
+  before_action :require_login, only: [:create, :new, :upvote]
 
   def index
     @posts = Post.all
@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.create(post_params)
-    if @post.save && @post.votes.create!(user: current_user)
+    if @post.save && @post.votes.create(user: current_user)
       redirect_to post_path(@post)
     else
       render :new, status: :unprocessable_entity
@@ -23,7 +23,12 @@ class PostsController < ApplicationController
   end
 
   def upvote
-    fail
+    @post = Post.find(params[:post_id])
+    if @post.voters << current_user
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
