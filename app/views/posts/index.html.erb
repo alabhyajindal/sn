@@ -14,12 +14,20 @@
           <%= link_to post.title, post_path(post) %>
         <% end %>
       </div>
+
       <% if post.url.present? %>
         <span class='text-gray-500 text-xs'>(<%= display_url(post.url) %>)</span>
       <% end %>
-      <div class='text-xs text-gray-500'  >
+
+      <div class='text-xs text-gray-500'>
+
+        <% unless post.votes.empty? %>
+          <%= post.votes.count %> <%= "point".pluralize(post.votes.count) %>
+        <% end %>
+
         by <%= post.user.username %>
         <%= time_ago_in_words(post.created_at) %> ago | <%= link_to 'discuss', post_path(post) %>
+
       </div>
     </div>
   <% end %>
