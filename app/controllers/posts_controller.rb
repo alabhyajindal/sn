@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :require_login, only: [:create, :new]
 
   def index
-    @posts = Post.all
+    @posts = Post.includes(:user, :votes).all
   end
 
   def new

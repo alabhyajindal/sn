@@ -25,7 +25,7 @@
 
       <div class='text-xs text-gray-500'>
 
-        <%= post.votes.count %> <%= "point".pluralize(post.votes.count) %>
+        <%= post.votes.size %> <%= "point".pluralize(post.votes.size) %>
 
         by <%= post.user.username %>
         <%= time_ago_in_words(post.created_at) %> ago | <%= link_to 'discuss', post_path(post) %>
