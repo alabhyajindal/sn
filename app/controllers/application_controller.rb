@@ -17,4 +17,10 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user
+
+  def already_voted?(post, user)
+    post.voters.include?(user)
+  end
+
+  helper_method :already_voted?
 end
