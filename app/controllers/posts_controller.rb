@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :require_login, only: [:create, :new, :upvote]
+  before_action :require_login, only: [:create, :new]
 
   def index
     @posts = Post.all
@@ -20,16 +20,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-  end
-
-  def upvote
-    @post = Post.find(params[:post_id])
-
-    unless @post.voters.include?(current_user)
-      @post.voters << current_user
-    end
-
-    redirect_to root_path
   end
 
   private

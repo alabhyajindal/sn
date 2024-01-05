@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :users
   resources :posts do
-    post 'upvote' => 'posts#upvote'
+    resources :votes, only: [:create, :destroy]
   end
 
   resource :session, only: [:new, :create, :destroy]
