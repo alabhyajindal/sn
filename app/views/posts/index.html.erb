@@ -1,36 +1,37 @@
-<section>
+<section class='text-sm'>
   <% @posts.each do |post| %>
-    <div class='mb-4 text-sm'>
 
-      <div class='flex items-center gap-1'>
+    <div class='mb-4 grid grid-cols-[max-content_1fr]'>
 
-        <%= turbo_frame_tag "post-votes-#{post.id}" do %>
-
-          <%= button_to post_votes_path(post), class: ('invisible' if already_voted?(post, current_user)) do %>
-            <svg class='h-2 text-gray-500' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M142.41,40.22l87.46,151.87C236,202.79,228.08,216,215.46,216H40.54C27.92,216,20,202.79,26.13,192.09L113.59,40.22C119.89,29.26,136.11,29.26,142.41,40.22Z" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><title>Upvote</title></svg>
-          <% end %>
-
+      <!--Upvote button-->
+      <div class='px-2'>
+        <%= button_to post_votes_path(post), class: ('invisible' if already_voted?(post, current_user)) do %>
+          <svg class='h-2 text-gray-500' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M142.41,40.22l87.46,151.87C236,202.79,228.08,216,215.46,216H40.54C27.92,216,20,202.79,26.13,192.09L113.59,40.22C119.89,29.26,136.11,29.26,142.41,40.22Z" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><title>Upvote</title></svg>
         <% end %>
+      </div>
 
+      <!--Grid first row-->
+      <div>
         <% if post.url.present? %>
           <%= link_to post.title, post.url %>
         <% else %>
           <%= link_to post.title, post_path(post) %>
         <% end %>
+
+        <% if post.url.present? %>
+          <span class='text-gray-500 text-xs'>(<%= display_url(post.url) %>)</span>
+        <% end %>
       </div>
 
-      <% if post.url.present? %>
-        <span class='text-gray-500 text-xs'>(<%= display_url(post.url) %>)</span>
-      <% end %>
-
-      <div class='text-xs text-gray-500'>
-
+      <!--Grid second row-->
+      <div class='col-start-2 text-xs text-gray-500'>
         <%= post.votes.size %> <%= "point".pluralize(post.votes.size) %>
 
         by <%= post.user.username %>
         <%= time_ago_in_words(post.created_at) %> ago | <%= link_to 'discuss', post_path(post) %>
-
       </div>
+
     </div>
+
   <% end %>
 </section>
